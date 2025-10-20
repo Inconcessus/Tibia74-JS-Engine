@@ -4,7 +4,7 @@ const Database = requireModule("database");
 const Enum = requireModule("enum");
 const GameLoop = requireModule("gameloop");
 const HTTPServer = requireModule("http-server");
-const IPCSocket = requireModule("IPCSocket");
+const IPCSocket = requireModule("ipcsocket");
 
 const GameServer = function() {
 

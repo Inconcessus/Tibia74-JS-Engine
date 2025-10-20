@@ -1,22 +1,68 @@
 # Forby HTML5 Open Tibia Client and Server
 
-# Installation
+## Installation
 
 The Open Tibia 7.4 server runs on a custom NodeJS server and protocol.
 
-# Running
+### Docker installation
 
-    git clone https://github.com/Inconcessus/Tibia74-JS-Engine.git
-    cd Tibia74-JS-Engine
+1.  Clone repository
+
+   ```shell
+   git clone https://github.com/Inconcessus/Tibia74-JS-Engine.git
+   ```
+
+2.  Navigate to the project directory:
+
+   ```shell
+   cd Tibia74-JS-Engine
+   ```
+
+3.  Run for the first time to build and start the containers:
+
+    ```shell
+    docker compose up -d --build
+    ```
+
+    next time just run:
+
+    ```shell
+    docker compose up -d
+    ```
+
+4.  Visit the resources hosted at http://127.0.0.1:8000 and login using the default credentials.
+
+---
+
+### Running directly in your system
+
+1.  Clone repository
+
+   ```shell
+   git clone https://github.com/Inconcessus/Tibia74-JS-Engine.git
+   ```
+
+2.  Navigate to the project directory:
+
+   ```shell
+   cd Tibia74-JS-Engine
+   ```
+
+3.  Install dependencies:
+    ```shell
     npm install
+    ```
 
-Three processes need to be started independently:
-
+4.  Run three processes (need to be started independently):
+    ```shell
     python client-server.py
     node engine.js
     node login.js
+    ```
 
-Visit the resources hosted at `http://127.0.0.1:8000/` and login using the default credentials.
+5.  Visit the resources hosted at http://127.0.0.1:8000 and login using the default credentials.
+
+---
 
 # engine.js
 
