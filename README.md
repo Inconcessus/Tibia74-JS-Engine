@@ -1,4 +1,4 @@
-# Forby HTML5 Open Tibia Client and Server
+# Forby HTML5 Open Tibia Client and Server (V1)
 
 # Installation
 
