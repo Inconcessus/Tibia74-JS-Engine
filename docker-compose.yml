@@ -1,0 +1,50 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    container_name: ot-server
+    ports:
+      - "1337:1337"
+      - "2222:2222"
+    volumes:
+      - ./data:/ot-server/data
+      - ./src:/ot-server/src
+      - ./tools:/ot-server/tools
+      - ./engine.js:/ot-server/engine.js
+      - ./ipcclient.js:/ot-server/ipcclient.js
+      - ./login.js:/ot-server/login.js
+      - ./package.json:/ot-server/package.json
+      - ./package-lock.json:/ot-server/package-lock.json
+      - ./require.js:/ot-server/require.js
+    working_dir: /ot-server
+    networks:
+      - ot-network
+
+  client:
+    build:
+      context: .
+      dockerfile: docker/client/Dockerfile
+    container_name: ot-client
+    volumes:
+      - ./client:/usr/src/app/client
+    working_dir: /usr/src/app
+    networks:
+      - ot-network
+
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    container_name: ot-nginx
+    ports:
+      - "8000:80"
+    depends_on:
+      - server
+      - client
+    networks:
+      - ot-network
+
+networks:
+  ot-network:
+    driver: bridge
